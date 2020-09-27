@@ -21,4 +21,23 @@ function main(){
 }
 
 
+function art_pow(x,y){
+    
+}
 
+function decimalToBinary(n,s){
+    
+    if(n==0){
+        return s;
+    }
+    
+    let bit=n & 01;
+    
+    let b="0";
+    if(bit==1) {
+        b="1";
+    }
+    
+    
+    return decimalToBinary(n>>1,b+s);
+}
