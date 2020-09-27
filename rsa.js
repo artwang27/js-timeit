@@ -60,6 +60,7 @@ class RSA{
     
     
     //計算 data^power2 mod N
+    //這是傳統的計算方式，已經改由 powerMod( ) 來代替了~~
     calc(data, power2, N){
         let t=1;
         for(let i=0; i<power2; i++){
@@ -72,12 +73,16 @@ class RSA{
     
     //加密
     encryption(data){
-        return this.calc(data, this.pubKey, this.N);
+        //return this.calc(data, this.pubKey, this.N);
+        let key=this.pubKey;
+        return powerMod(data, key, this.N);
     }
     
     //解密
     decrypt(data){
-        return this.calc(data, this.pivKey, this.N);
+        //return this.calc(data, this.pivKey, this.N);
+        let key= this.pivKey;
+        return powerMod(data, key, this.N);
     }
   
 }//class
@@ -90,6 +95,27 @@ function gcd(a,b){
     else
         return gcd(b, a%b);
 }
+
+
+//計算 x^y mod n
+//用遞迴及 honnor 法則，簡化指數冪次方的計算
+function powerMod(x,y,n){
+    if(y==0){
+        return 1;
+    }
+    
+    
+    let d=powerMod(x,y>>1,n);
+    d = (d*d) % n;
+    
+    let bit=y & 01;
+    if(bit==1) {
+        d = (d*x) %n ;
+    }
+    return d;
+}
+
+
 
 
 /*

@@ -21,9 +21,6 @@ function main(){
 }
 
 
-function art_pow(x,y){
-    
-}
 
 function decimalToBinary(n){
     if(n==0){
