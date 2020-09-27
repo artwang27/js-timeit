@@ -22,7 +22,3 @@ function main(){
 
 
 
-function print(s){
-    //console.log(s);
-    document.write(s+"<br/>");
-}
