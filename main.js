@@ -25,19 +25,19 @@ function art_pow(x,y){
     
 }
 
-function decimalToBinary(n,s){
-    
+function decimalToBinary(n){
     if(n==0){
-        return s;
+        return 0;
     }
+    
+    
+    d=decimalToBinary(n>>1);
+    d *=2;
     
     let bit=n & 01;
-    
-    let b="0";
     if(bit==1) {
-        b="1";
+        d +=1;
     }
-    
-    
-    return decimalToBinary(n>>1,b+s);
+    return d;
+
 }
