@@ -74,15 +74,14 @@ class RSA{
     //加密
     encryption(data){
         //return this.calc(data, this.pubKey, this.N);
-        let key=this.pubKey;
-        return powerMod(data, key, this.N);
+        return powerMod(data, this.pubKey, this.N);
     }
     
     //解密
     decrypt(data){
         //return this.calc(data, this.pivKey, this.N);
-        let key= this.pivKey;
-        return powerMod(data, key, this.N);
+        //let key= this.pivKey;
+        return powerMod(data, this.pivKey, this.N);
     }
   
 }//class

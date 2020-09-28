@@ -1,15 +1,14 @@
 function main(){
     let rsa=new RSA(67,71);
-    print("公鑰 e=");
-    print(rsa.pubKey);
-    print("密鑰 d=");
-    print(rsa.pivKey);
-    print("");
-    
+    print("公鑰 e= "+ rsa.pubKey);
+    print("密鑰 d= "+rsa.pivKey);
+        
     let msg=1234;
     
     let c=rsa.encryption(msg);
+    //print(rsa.pubKey);
     let m2=rsa.decrypt(c);
+    //print(rsa.pivKey);
     
     print("原始資料：");
     print(msg);
@@ -17,11 +16,13 @@ function main(){
     print(c);
     print("解密後：")
     print(m2);
+    print("");
     
 }
 
 
-
+/*
+//十進位轉成二進位，之後再轉回十進位，測試用
 function decimalToBinary(n){
     if(n==0){
         return 0;
@@ -38,3 +39,4 @@ function decimalToBinary(n){
     return d;
 
 }
+*/
